@@ -1,50 +1,35 @@
-import globals from "globals";
-import stylisticJs from '@stylistic/eslint-plugin-js'
-import js from '@eslint/js'
 
-export default [
-  js.configs.recommended,
-  {
-    files: ["**/*.js"],
-    languageOptions: {
-      sourceType: "commonjs",
-      globals: {
-        ...globals.node,
-      },
-      ecmaVersion: "latest",
+module.exports = {
+  env: {
+    node: true,
+    browser: true,
+    es6: true,
+    'jest/globals': true,
+  },
+  extends: ['eslint:recommended', 'plugin:react/recommended'],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
     },
-    plugins: {
-      '@stylistic/js': stylisticJs
-    },
-    rules: {
-      '@stylistic/js/indent': [
-        'error',
-        2
-      ],
-      '@stylistic/js/linebreak-style': [
-        'error',
-        'unix'
-      ],
-      '@stylistic/js/quotes': [
-        'error',
-        'single'
-      ],
-      '@stylistic/js/semi': [
-        'error',
-        'never'
-      ],
-      'eqeqeq': 'error',
-      'no-trailing-spaces': 'error',
-      'object-curly-spacing': [
-        'error', 'always'
-      ],
-      'arrow-spacing': [
-        'error', { 'before': true, 'after': true },
-      ],
-      'no-console': 'off',
+    ecmaVersion: 2018,
+    sourceType: 'module',
+  },
+  plugins: ['react', 'jest'],
+  settings: {
+    react: {
+      version: 'detect',
     },
   },
-  { 
-    ignores: ["dist/**", "build/**"],
+  rules: {
+    indent: ['error', 2],
+    'linebreak-style': ['error', 'unix'],
+    quotes: ['error', 'single'],
+    semi: ['error', 'never'],
+    eqeqeq: 'error',
+    'no-trailing-spaces': 'error',
+    'object-curly-spacing': ['error', 'always'],
+    'arrow-spacing': ['error', { before: true, after: true }],
+    'no-console': 'error',
+    'react/prop-types': 0,
   },
-]
+}
