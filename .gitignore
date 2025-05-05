@@ -2,3 +2,5 @@ node_modules
 .dockerignore
 .env
 .github
+Dockerfile
+fly.toml
