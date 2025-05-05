@@ -10,6 +10,8 @@ app.use(express.json())
 app.use(express.static('dist'))
 app.use(cors())
 
+// Hello
+
 const errorHandler = (error, request, response, next) => {
   console.error(error.message)
 
