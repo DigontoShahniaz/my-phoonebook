@@ -1,15 +1,15 @@
 /* eslint-disable react/prop-types */
+import { ListGroup, Button } from 'react-bootstrap';
 
-const Phonebook = ({persons, deletePerson}) => {
+const Phonebook = ({ persons, deletePerson }) => {
   return (
-    <>
-      <li>
-        {persons.name} {persons.number}
-        <button onClick={deletePerson}>delete</button>
-      </li>
-    </>
+    <ListGroup.Item>
+      {persons.name} {persons.number}
+      <Button variant="danger" size="sm" onClick={deletePerson}>
+        Delete
+      </Button>
+    </ListGroup.Item>
+  );
+};
 
-  )
-}
-
-export default Phonebook
+export default Phonebook;

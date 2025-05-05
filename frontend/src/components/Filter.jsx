@@ -1,10 +1,18 @@
-// eslint-disable-next-line react/prop-types
-const Filter = ({filter, handleFilterChange}) => {
-  return (
-    <div>
-      filter shown with <input value={filter} onChange={handleFilterChange} />
-    </div>
-  )
-}
+/* eslint-disable react/prop-types */
+import { Form } from 'react-bootstrap';
 
-export default Filter
+const Filter = ({ filter, handleFilterChange }) => {
+  return (
+    <Form.Group controlId="filter">
+      <Form.Label>Filter shown with</Form.Label>
+      <Form.Control
+        type="text"
+        value={filter}
+        onChange={handleFilterChange}
+        placeholder="Enter name to filter"
+      />
+    </Form.Group>
+  );
+};
+
+export default Filter;
